@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import logo from './resources/logo.svg';
 import './resources/App.css';
 
-
-import {ApolloClient,gql, graphql,ApolloProvider, createNetworkInterface} from 'react-apollo';
+import {ApolloClient, ApolloProvider, createNetworkInterface} from 'react-apollo';
 import {makeExecutableSchema, addMockFunctionsToSchema} from 'graphql-tools';
 
 //import {mockNetworkInterfaceWithSchema} from 'apollo-test-utils';
@@ -12,6 +11,7 @@ import {makeExecutableSchema, addMockFunctionsToSchema} from 'graphql-tools';
 import { typeDefs } from './graphql/schema';
 
 import AddChanel from './AddChannel';
+import ChannelsListWithData from './ChannelList';
 
 
 const schema = makeExecutableSchema({typeDefs});
@@ -24,22 +24,6 @@ const networkInterface = createNetworkInterface({uri:'http://localhost:4000/grap
 const client = new ApolloClient({
   networkInterface
 });
-
-const channelsListQuery = gql`
-  query ChannelsListQuery {
-    channels {
-        id
-        name
-    }
-  }
-`;
-
-
-
-
-
-
-
 
 class App extends Component {
   render() {

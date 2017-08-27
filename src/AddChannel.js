@@ -10,9 +10,18 @@ const addChannelMutation = gql`
             name
         }
     }
-    
+
 
 `;
+
+const channelsListQuery = gql`
+    query ChannelsListQuery {
+      channels {
+          id
+          name
+      }
+    }
+  `;
 
 const AddChannel = ({mutate}) => {
     const handleInput = (e) =>{

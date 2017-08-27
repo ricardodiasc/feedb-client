@@ -1,4 +1,15 @@
 import React from 'react';
+import { gql, graphql } from 'react-apollo';
+
+
+const channelsListQuery = gql`
+query ChannelsListQuery {
+  channels {
+      id
+      name
+  }
+}
+`;
 
 const ChannelsList = ({data:{loading, error,channels}}) => {
     if(loading){
@@ -13,4 +24,6 @@ const ChannelsList = ({data:{loading, error,channels}}) => {
       </ul>);
   }
   
-  const ChannelsListWithData = graphql(channelsListQuery)(ChannelsList);
+const ChannelsListWithData = graphql(channelsListQuery)(ChannelsList);
+
+export default ChannelsListWithData;

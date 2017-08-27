@@ -25,16 +25,25 @@ const channelsListQuery = gql`
 
 const AddChannel = ({mutate}) => {
     const handleInput = (e) =>{
-        if(e.keyCode ===13){
+        if(e.keyCode === 13){
             e.persist();
 
             mutate({
-                variables:{name:e.target.value},
-                refetchQueries: [{ query: channelsListQuery}]
-            }).then(res=>e.target.value=''); 
-
-            console.log(e.target.value);
-            e.target.value = '';
+                variables : {name:e.target.value},
+                optimisticResponse: {
+                    addChannel: {
+                        name: e.target.value,
+                        id: Math.round(Math.random() * -100000),
+                        __typename: 'Channel'
+                    }
+                },
+                
+                update : (store, {data: { addChannel } } ) => {
+                    const data = store.readQuery({query: channelsListQuery});
+                    data.channels.push(addChannel);
+                    store.writeQuery({query : channelsListQuery, data });
+                }
+            }).then(()=>e.target.value='');    
         } 
         
     }

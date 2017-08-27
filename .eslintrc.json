@@ -1,0 +1,45 @@
+{
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module",
+        "allowImportExportEverywhere" : false
+    },
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true,
+        "jest": true
+        
+    },
+    "plugins": [
+      "react", "class-property"  
+    ],
+
+    "rules": {
+        "eqeqeq":"warn",
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "no-unreachable": "warn",
+        "constructor-super": "warn",
+        "valid-typeof": "warn",
+        "complexity": ["error", 6],
+        "comma-dangle":["error","never"],
+        "no-unused-vars": [
+            "error",
+            {
+              "args": "all",
+              "argsIgnorePattern": "^_"
+            }
+          ]
+        
+    }
+}

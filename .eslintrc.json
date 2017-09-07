@@ -1,13 +1,13 @@
 {
     "parser": "babel-eslint",
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended","plugin:react/recommended"],
     "parserOptions": {
         "ecmaVersion": 7,
+        "sourceType": "module",
+        "allowImportExportEverywhere" : false,
         "ecmaFeatures": {
             "jsx": true
-        },
-        "sourceType": "module",
-        "allowImportExportEverywhere" : false
+        }
     },
     "env": {
         "browser": true,
@@ -33,6 +33,8 @@
         "valid-typeof": "warn",
         "complexity": ["error", 6],
         "comma-dangle":["error","never"],
+        "require-await" : "error",
+        "construct-super":"error",
         "no-unused-vars": [
             "error",
             {

@@ -55,6 +55,5 @@ const AddChannel = ({mutate}) => {
     );
 };
 
-
 const AddChannelWithMutation = graphql(addChannelMutation)(AddChannel);
 export default AddChannelWithMutation;

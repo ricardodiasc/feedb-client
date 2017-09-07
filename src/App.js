@@ -34,7 +34,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h2>Testing Apollo Client</h2>
           </div>
-          <AddChanel />
+          <AddChanel  />
           <ChannelsListWithData />
         </div>
       </ApolloProvider>

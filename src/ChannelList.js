@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { gql, graphql } from 'react-apollo';
 
 
@@ -25,7 +26,13 @@ const ChannelsList = ({data:{loading, error,channels}}) => {
         }
       </ul>);
   }
-  
+
+ChannelsList.propTypes = {
+  data : PropTypes.element
+}
+
 const ChannelsListWithData = graphql(channelsListQuery)(ChannelsList);
+
+
 
 export default ChannelsListWithData;
